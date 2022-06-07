@@ -1,0 +1,31 @@
+﻿<Window x:Class="treinamentowpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:treinamentowpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="523" Background="#FF121212" Visibility="Visible" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style/>
+    </Window.Style>
+    <Grid HorizontalAlignment="Center" Width="503" Margin="0,0,0,97">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding VehiclesList}" SelectedItem="{Binding ProductSelected}" Margin="0,10,0,69" RenderTransformOrigin="0.512,0.505" Background="#FFE6E6E6" BorderBrush="Black" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding= "{Binding Id}"/>
+                    <GridViewColumn Header="Modelo" Width="100" DisplayMemberBinding= "{Binding Modelo}"/>
+                    <GridViewColumn Header="Ano" Width="100" DisplayMemberBinding= "{Binding Ano}"/>
+                    <GridViewColumn Header="Cor" Width="100" DisplayMemberBinding= "{Binding Cor}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Cadastrar" Command="{Binding Add}"  HorizontalAlignment="Left" Margin="72,323,0,0" VerticalAlignment="Top" Width="100" Height="28" BorderBrush="White" Foreground="White" Background="#FF0084FF"/>
+        <Button Content="Remover" Command="{Binding Remove}" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Width="100" Height="28" Foreground="White" BorderBrush="White" Background="Red"/>
+        <Button Content="Editar" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="326,323,0,0" VerticalAlignment="Top" Width="100" Height="28" Background="#FF02C5DE" Foreground="White" BorderBrush="White"/>
+
+    </Grid>
+</Window>
