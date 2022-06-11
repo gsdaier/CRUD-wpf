@@ -35,10 +35,6 @@ namespace wpfnovo
             {
                 MessageBox.Show(ex.Message);
             }
-
-            
-
-
             CommandInit();
         }
 
@@ -53,7 +49,6 @@ namespace wpfnovo
                 bool? result = tela.ShowDialog();
 
                 if (result == true) {
-
                     try { 
                         dao.Insert(VehicleInsert);
                         VehiclesList.Add(VehicleInsert);
@@ -73,15 +68,34 @@ namespace wpfnovo
 
             Remove = new RelayCommand((object carro) =>
             {
-                Remove_Test();
-                VehiclesList.Remove(ProductSelected);
+                try
+                {
+                    VehiclesList.Remove(ProductSelected);
+                    if (ProductSelected != null)
+                    {
+                        Remove_Test();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Escolha um carro para excluir");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
             });
 
             Edit = new RelayCommand((object _) =>
             {
                 CreateAndEdit tela = new CreateAndEdit();
                 tela.DataContext = ProductSelected;
-                tela.ShowDialog();
+                bool? result = tela.ShowDialog();
+                // REGRA AQUI!
+                if (result != true)
+                {
+                    MessageBox.Show("Não editado");
+                }
             });
         }
 
@@ -116,15 +130,12 @@ namespace wpfnovo
 
                 ICollectionView view = CollectionViewSource.GetDefaultView(listaVeiculos);
                 view.Refresh();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-        private void Notifica(string VehiclesList)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(VehiclesList));
         }
     }
 }

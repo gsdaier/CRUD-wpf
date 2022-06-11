@@ -40,12 +40,26 @@ namespace wpfnovo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            string modelo, ano, cor;
+
+            modelo = TboxModelo.Text;
+            ano = TboxAno.Text;
+            cor = TboxCor.Text;
+
+            if ((modelo == "") || (ano == "") || (cor == ""))
+            {
+                MessageBox.Show("Verifique os campos vazios");
+                DialogResult = false;
+            }
+            else
+            {
+                DialogResult = true;
+            }
         }
+
 
         private void ClearTextBox()
         {
-            TboxId.Text = "";
             TboxModelo.Text = "";
             TboxAno.Text = "";
             TboxCor.Text = "";

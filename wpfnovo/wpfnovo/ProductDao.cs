@@ -25,9 +25,9 @@ namespace wpfnovo.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "DELETE FROM vehicles WHERE id = @id";
+                query.CommandText = "DELETE FROM vehicles WHERE modelo = @modelo";
 
-                query.Parameters.AddWithValue("@id", t.Id);
+                query.Parameters.AddWithValue("@modelo", t.Modelo);
 
                 conn.Open();
                 var result = query.ExecuteNonQuery();
@@ -83,11 +83,11 @@ namespace wpfnovo.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "insert into vehicles (id, modelo, ano, cor)" +
-                "VALUES (@id, @modelo, @ano, @cor)";
+                query.CommandText = "insert into vehicles ( modelo, ano, cor )" +
+                "VALUES ( @modelo, @ano, @cor )";
                 //vehi
 
-                query.Parameters.AddWithValue("@id", t.Id);
+                //query.Parameters.AddWithValue("@id", t.Id);
                 query.Parameters.AddWithValue("@modelo", t.Modelo);
                 query.Parameters.AddWithValue("@ano", t.Ano);
                 query.Parameters.AddWithValue("@cor", t.Cor);
