@@ -23,14 +23,7 @@ namespace wpfnovo
     {
         public CreateAndEdit()
         {
-            DataContext = this;
             InitializeComponent();
-            Loaded += CreateAndEdit_Loaded;
-        }
-
-        private void CreateAndEdit_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -56,8 +49,6 @@ namespace wpfnovo
                 DialogResult = true;
             }
         }
-
-
         private void ClearTextBox()
         {
             TboxModelo.Text = "";

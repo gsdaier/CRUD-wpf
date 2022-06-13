@@ -45,59 +45,31 @@ namespace wpfnovo.Models
                 conn.Close();
             }
         }
-
-        //public vehicles GetById(int id)
-        //{
-        //    try
-        //    {
-        //        var query = conn.Query();
-        //        query.CommandText = "SELECT * FROM vehicles WHERE id = @id";
-                
-        //        query.Parameters.AddWithValue("@id", id);
-
-        //        MySqlDataReader rdr = query.ExecuteReader();
-
-        //        while (rdr.Read())
-        //        {
-        //            vehicles t = new vehicles();
-        //            t.Id = rdr.GetString(0);
-        //            t.Modelo = rdr.GetString(1);
-        //            t.Ano = rdr.GetString(2);
-        //            t.Cor = rdr.GetString(3);
-        //        }
-
-               
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    finally
-        //    {
-        //        conn.Query();
-        //    }
-        //}
-
         public void Insert(vehicles t)
         {
             try
             {
                 var query = conn.Query();
                 query.CommandText = "insert into vehicles ( modelo, ano, cor )" +
-                "VALUES ( @modelo, @ano, @cor )";
-                //vehi
+                "VALUES ( @modelo, @ano, @cor ); SELECT LAST_INSERT_ID();";
 
-                //query.Parameters.AddWithValue("@id", t.Id);
                 query.Parameters.AddWithValue("@modelo", t.Modelo);
                 query.Parameters.AddWithValue("@ano", t.Ano);
                 query.Parameters.AddWithValue("@cor", t.Cor);
 
                 conn.Open();
 
-                var result = query.ExecuteNonQuery();
+                //var result = query.ExecuteNonQuery();
 
-                if (result == 0)
-                    throw new Exception("Carro não inserido. Verifique e tente novamente.");
+                MySqlDataReader rdr = query.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    t.Id = rdr.GetString(0);
+                }
+
+                //if (result == 0)
+                //    throw new Exception("Carro não inserido. Verifique e tente novamente.");
 
             }
             catch (Exception e)
@@ -112,7 +84,28 @@ namespace wpfnovo.Models
 
         public void Update(vehicles t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE vehicles SET modelo = @modelo, cor = @cor, ano = @ano " + "WHERE id = @id";
+
+                query.Parameters.AddWithValue("@id", t.Id);
+                query.Parameters.AddWithValue("@modelo", t.Modelo);
+                query.Parameters.AddWithValue("@ano", t.Ano);
+                query.Parameters.AddWithValue("@cor", t.Cor);
+
+                conn.Open();
+
+                var result = query.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw new Exception("Carro não editado. Verifique e tente novamente.");
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         public List<vehicles> List()
         {

@@ -18,7 +18,7 @@
         </Menu>
 
         <Button Name="CadastroCarro" Content="Cadastrar" Command="{Binding Add}"  HorizontalAlignment="Left" Margin="72,348,0,0" VerticalAlignment="Top" Width="100" Height="28" BorderBrush="White" Foreground="White" Background="#FF0084FF" Click="CadastroCarro_Click"/>
-        <Button Name="RemoverCarro" Content="Remover" Command="{Binding Remove}" HorizontalAlignment="Center" Margin="0,348,0,0" VerticalAlignment="Top" Width="100" Height="28" Foreground="White" BorderBrush="White" Background="Red" Click="RemoverCarro_Click"/>
+        <Button Name="RemoverCarro" Content="Remover" Command="{Binding Remove}" HorizontalAlignment="Center" Margin="0,348,0,0" VerticalAlignment="Top" Width="100" Height="28" Foreground="White" BorderBrush="White" Background="Red"/>
         <Button Content="Editar" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="326,348,0,0" VerticalAlignment="Top" Width="100" Height="28" Background="#FF02C5DE" Foreground="White" BorderBrush="White"/>
         <ListView x:Name="listview" ItemsSource="{Binding VehiclesList}" SelectedItem="{Binding ProductSelected}" Margin="18,62,17,115" RenderTransformOrigin="0.512,0.505" Background="#FFE6E6E6" BorderBrush="Black">
             <ListView.View>

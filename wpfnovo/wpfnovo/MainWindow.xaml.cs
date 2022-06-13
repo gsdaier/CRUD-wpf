@@ -18,20 +18,7 @@ namespace wpfnovo
 
         private void CadastroCarro_Click(object sender, RoutedEventArgs e)
         {
-            //Button button = sender as Button;
-
-            //switch (button.Name)
-            //{
-            //    case "CadastroCarro":
-            //        var window = new CreateAndEdit();
-            //        window.ShowDialog();
-            //        break;
-            //}
-        }
-
-        private void RemoverCarro_Click(object sender, RoutedEventArgs e)
-        {
-
+  
         }
     }
 }

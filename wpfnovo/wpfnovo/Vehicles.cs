@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using wpfnovo.Database;
@@ -8,7 +10,7 @@ using wpfnovo.Interface;
 
 namespace wpfnovo.Models
 {
-    public class vehicles
+    public class vehicles : INotifyPropertyChanged
     {
         private string id;
         private string modelo;
@@ -35,20 +37,49 @@ namespace wpfnovo.Models
         public string Modelo
         {
             get { return modelo; }
-            set { modelo = value; }
-
+            set { if (modelo != value)
+                {
+                  modelo = value;
+                  Notifica("Modelo");
+                }  
+            }
         }
 
         public string Ano
         {
             get { return ano; }
-            set { ano = value; }
+            set
+            {
+                if (ano != value)
+                {
+                    ano = value;
+                    Notifica("Ano");
+                }
+            }
         }
 
         public string Cor
         {
             get { return cor; }
-            set { cor = value; }
+            set
+            {
+                if (cor != value)
+                {
+                    cor = value;
+                    Notifica("Cor");
+                }
+            }
         }
+        public vehicles DeepCopy()
+        {
+            return new vehicles(this.Id, this.Modelo, this.Ano, this.Cor);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void Notifica(String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
