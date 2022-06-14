@@ -78,7 +78,6 @@ namespace wpfnovo
             Edit = new RelayCommand((object _) =>
             {
                 if (ProductSelected != null) {
-
                     CreateAndEdit tela = new CreateAndEdit();
                     vehicles carro = ProductSelected.DeepCopy();
                     tela.DataContext = carro;
