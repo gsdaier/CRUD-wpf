@@ -14,11 +14,11 @@ namespace wpfnovo.Models
 {
     class ProductDao : IDAO<vehicles>
     {
-        private database conn;
+        private MySqlDatabase conn;
 
         public ProductDao()
         {
-            conn = new database();
+            conn = new MySqlDatabase();
         }
         public void Delete(vehicles t)
         {

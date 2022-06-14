@@ -19,7 +19,5 @@ namespace wpfnovo.Interface
         void Delete(T t);
 
         List<T> List();
-
-        //T GetById(int id);
     }
 }

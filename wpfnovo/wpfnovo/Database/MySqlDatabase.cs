@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace wpfnovo.Database
 {
-    public class database
+    public class MySqlDatabase
     {
         private string host = "localhost";
         private string port = "3306";
@@ -20,7 +20,7 @@ namespace wpfnovo.Database
         private MySqlConnection conecction;
         private MySqlCommand command;
 
-        public database()
+        public MySqlDatabase()
         {
             try
             {

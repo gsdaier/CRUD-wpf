@@ -13,7 +13,7 @@ namespace wpfnovo
 {
     public class MainWindowsVM
     {
-        public ObservableCollection<vehicles> VehiclesList { get; set; }
+        public ObservableCollection<vehicles> VehiclesListView { get; set; }
         public ICommand Add { get; private set; }
         public ICommand Remove { get; private set; }
         public ICommand Edit { get; private set; }
@@ -25,8 +25,8 @@ namespace wpfnovo
             try
             {
                 dao = new ProductDao();
-                
-                VehiclesList = new ObservableCollection<vehicles>(dao.List());
+
+                VehiclesListView = new ObservableCollection<vehicles>(dao.List());
             }
             catch (Exception ex)
             {
@@ -41,16 +41,16 @@ namespace wpfnovo
             {
                 vehicles VehicleInsert = new vehicles();
 
-                CreateAndEdit tela = new CreateAndEdit();
-                tela.DataContext = VehicleInsert;
-                bool? result = tela.ShowDialog();
+                CreateAndEdit screen = new CreateAndEdit();
+                screen.DataContext = VehicleInsert;
+                bool? result = screen.ShowDialog();
 
                 if (result == true)
                 {
                     try
                     {
                         dao.Insert(VehicleInsert);
-                        VehiclesList.Add(VehicleInsert);
+                        VehiclesListView.Add(VehicleInsert);
                     }
                     catch (Exception ex)
                     {
@@ -64,7 +64,7 @@ namespace wpfnovo
                 try
                 {
                     dao.Delete(ProductSelected);
-                    VehiclesList.Remove(ProductSelected);
+                    VehiclesListView.Remove(ProductSelected);
                 }
                 catch (Exception ex)
                 {
@@ -75,10 +75,10 @@ namespace wpfnovo
             Edit = new RelayCommand((object _) =>
             {
                 if (ProductSelected != null) {
-                    CreateAndEdit tela = new CreateAndEdit();
+                    CreateAndEdit screen = new CreateAndEdit();
                     vehicles carro = ProductSelected.DeepCopy();
-                    tela.DataContext = carro;
-                    bool? result = tela.ShowDialog();
+                    screen.DataContext = carro;
+                    bool? result = screen.ShowDialog();
                     try
                     {
                         if (result == true)

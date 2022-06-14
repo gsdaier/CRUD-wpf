@@ -15,10 +15,5 @@ namespace wpfnovo
             InitializeComponent();
             DataContext = new MainWindowsVM();
         }
-
-        private void CadastroCarro_Click(object sender, RoutedEventArgs e)
-        {
-  
-        }
     }
 }

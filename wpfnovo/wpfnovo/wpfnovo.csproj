@@ -136,7 +136,7 @@
     <Compile Include="CreateAndEdit.xaml.cs">
       <DependentUpon>CreateAndEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Database\database.cs" />
+    <Compile Include="Database\MySqlDatabase.cs" />
     <Compile Include="Database\PostgresDatabase.cs" />
     <Compile Include="Interface\IDAO.cs" />
     <Compile Include="MainWindowsVM.cs" />
