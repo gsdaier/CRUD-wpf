@@ -61,7 +61,7 @@ namespace wpfnovo.Models
 
                 if (rdr.Read())
                 {
-                    t.Id = rdr.GetString(0);
+                    t.Id = rdr.GetInt32(0);
                 }
             }
             catch (Exception e)
@@ -113,7 +113,7 @@ namespace wpfnovo.Models
                 while (rdr.Read())
                 {
                     vehicles t = new vehicles();
-                    t.Id = rdr.GetString(0);
+                    t.Id = rdr.GetInt32(0);
                     t.Modelo = rdr.GetString(1);
                     t.Ano = rdr.GetString(2);
                     t.Cor = rdr.GetString(3);

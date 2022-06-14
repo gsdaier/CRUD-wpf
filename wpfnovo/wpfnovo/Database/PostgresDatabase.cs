@@ -10,10 +10,11 @@ namespace wpfnovo.Database
 {
     public class PostgresDatabase
     {
-        private string connstring = String.Format("Server={0};Port={1};" + 
-            "User Id={2};Password={3};Database={4};",
-            "localhost", 5432, "postgres",
-            "17052016", "postgres");
+        private string host = "localhost";
+        private string port = "5432";
+        private string user = "postgres";
+        private string password = "1234";
+        private string bdname = "postgres";
 
         private NpgsqlConnection connec;
         private NpgsqlCommand command;
@@ -21,7 +22,7 @@ namespace wpfnovo.Database
         {
             try
             {
-                connec = new NpgsqlConnection(connstring);
+                connec = new NpgsqlConnection($"Host={host};Database={bdname};Port={port};Username={user};Password={password};");
             }
             catch (Exception)
             {

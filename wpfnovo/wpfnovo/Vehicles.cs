@@ -12,7 +12,7 @@ namespace wpfnovo.Models
 {
     public class vehicles : INotifyPropertyChanged
     {
-        private string id;
+        private int id;
         private string modelo;
         private string ano;
         private string cor;
@@ -21,7 +21,7 @@ namespace wpfnovo.Models
         {
 
         }
-        public vehicles(string id, string modelo, string ano, string cor)
+        public vehicles(int id, string modelo, string ano, string cor)
         {
             this.id = id;
             this.modelo = modelo;
@@ -29,7 +29,7 @@ namespace wpfnovo.Models
             this.cor = cor;
         }
 
-        public string Id
+        public int Id
         {
             get { return id; }
             set { id = value; }

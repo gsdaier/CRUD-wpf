@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using wpfnovo.Database;
+using wpfnovo.Interface;
 using wpfnovo.Models;
 
 namespace wpfnovo
@@ -17,19 +18,15 @@ namespace wpfnovo
         public ICommand Remove { get; private set; }
         public ICommand Edit { get; private set; }
         public vehicles ProductSelected { get; set; }
-        public List<vehicles> listaVeiculos { get; set; }
 
-        private ProductDao dao;
-
+        private IDAO<vehicles> dao;
         public MainWindowsVM()
         {
-
             try
             {
                 dao = new ProductDao();
-                listaVeiculos = dao.List();
-
-                VehiclesList = new ObservableCollection<vehicles>(listaVeiculos);
+                
+                VehiclesList = new ObservableCollection<vehicles>(dao.List());
             }
             catch (Exception ex)
             {
