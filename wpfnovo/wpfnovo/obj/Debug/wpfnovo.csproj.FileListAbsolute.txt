@@ -39,6 +39,8 @@ C:\Users\gusta\Desktop\Teste Wpf\wpfnovo\wpfnovo\obj\Debug\wpfnovo.csproj.CoreCo
 C:\Users\gusta\Desktop\Teste Wpf\wpfnovo\wpfnovo\obj\Debug\wpfnovo.csproj.CopyComplete
 C:\Users\gusta\Desktop\Teste Wpf\wpfnovo\wpfnovo\obj\Debug\wpfnovo.exe
 C:\Users\gusta\Desktop\Teste Wpf\wpfnovo\wpfnovo\obj\Debug\wpfnovo.pdb
+C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Text.Json.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\wpfnovo.exe.config
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\wpfnovo.exe
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\wpfnovo.pdb
@@ -77,12 +79,10 @@ C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\MySql.Data.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\Npgsql.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Buffers.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Collections.Immutable.xml
-C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Memory.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Text.Encodings.Web.xml
-C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Text.Json.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Threading.Channels.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\gusta\Desktop\Teste_Wpf\wpfnovo\wpfnovo\bin\Debug\System.ValueTuple.xml

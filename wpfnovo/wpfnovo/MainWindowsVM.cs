@@ -61,14 +61,20 @@ namespace wpfnovo
 
             Remove = new RelayCommand((object carro) =>
             {
-                try
-                {
-                    dao.Delete(ProductSelected);
-                    VehiclesListView.Remove(ProductSelected);
+                if (ProductSelected != null) { 
+                    try
+                    {
+                        dao.Delete(ProductSelected);
+                        VehiclesListView.Remove(ProductSelected);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("ERROR: " + ex.Message);
+                    MessageBox.Show("Selecione um carro para remover");
                 }
             });
 

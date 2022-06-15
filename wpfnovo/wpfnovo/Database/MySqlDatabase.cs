@@ -53,13 +53,14 @@ namespace wpfnovo.Database
 
         public void Open()
         {
+            string ErrorMsg = string.Empty;
             try 
             { 
-            conecction.Open();
+                conecction.Open();
             }
             catch (Exception e)
             {
-                throw e;
+                ErrorMsg = e.Message;
             }
         }
         public void Close()

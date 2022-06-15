@@ -41,8 +41,11 @@ namespace wpfnovo
 
             if ((modelo == "") || (ano == "") || (cor == ""))
             {
-                MessageBox.Show("Verifique os campos vazios");
-                DialogResult = false;
+                var result = MessageBox.Show("Verifique seus campos vazios e tente novamente", "Question.", MessageBoxButton.OKCancel);
+                if(result == MessageBoxResult.Cancel)
+                {
+                    DialogResult = false;
+                }
             }
             else
             {

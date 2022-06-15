@@ -22,16 +22,16 @@ namespace wpfnovo.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "DELETE FROM vehicles WHERE modelo = @modelo";
+                query.CommandText = "DELETE FROM vehicles WHERE id = @id";
 
                 query.Parameters.AddWithValue("@modelo", t.Modelo);
 
                 conn.Open();
                 var result = query.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.Message);
+                throw new Exception("Carro não removido. Verifique sua conexão e tente novamente.");
             }
             finally
             {
@@ -62,9 +62,9 @@ namespace wpfnovo.Models
                     t.Id = rdr.GetInt32(0);
                 }
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.Message);
+                throw new Exception("Carro não Inserido. Verifique sua conexão e tente novamente.");
             }
             finally
             {
@@ -95,9 +95,9 @@ namespace wpfnovo.Models
                 }
                 return list;
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw new Exception("Verifique sua conexão e tente novamente");
             }
             finally
             {
@@ -123,7 +123,7 @@ namespace wpfnovo.Models
             }
             catch
             {
-                throw new Exception("Carro não editado. Verifique e tente novamente.");
+                throw new Exception("Carro não editado. Verifique sua conexão e tente novamente.");
             }
             finally
             {

@@ -5,6 +5,6 @@
     "\\wpfnovo\\wpfnovo",
     "\\wpfnovo\\wpfnovo\\Database"
   ],
-  "SelectedNode": "\\wpfnovo\\wpfnovo\\Database\\PostgresDatabase.cs",
+  "SelectedNode": "\\wpfnovo\\wpfnovo\\Database\\MySqlDatabase.cs",
   "PreviewInSolutionExplorer": false
 }
