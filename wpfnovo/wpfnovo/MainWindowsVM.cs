@@ -8,6 +8,7 @@ using System.Windows.Input;
 using wpfnovo.Database;
 using wpfnovo.Interface;
 using wpfnovo.Models;
+using wpfnovo.Uteis;
 
 namespace wpfnovo
 {
@@ -24,7 +25,7 @@ namespace wpfnovo
         {
             try
             {
-                dao = new ProductDao();
+                dao = new MySqlDao();
 
                 VehiclesListView = new ObservableCollection<vehicles>(dao.List());
             }
@@ -45,7 +46,7 @@ namespace wpfnovo
                 screen.DataContext = VehicleInsert;
                 bool? result = screen.ShowDialog();
 
-                if (result == true)
+                if (result == true && ValidatorStrings.Validator(VehicleInsert.Modelo, VehicleInsert.Ano, VehicleInsert.Cor))
                 {
                     try
                     {
@@ -87,7 +88,7 @@ namespace wpfnovo
                     bool? result = screen.ShowDialog();
                     try
                     {
-                        if (result == true)
+                        if (result == true && ValidatorStrings.Validator(ProductSelected.Modelo, ProductSelected.Ano, ProductSelected.Cor))
                         {
                             dao.Update(carro);
                             ProductSelected.Modelo = carro.Modelo;
@@ -95,6 +96,9 @@ namespace wpfnovo
                             ProductSelected.Cor = carro.Cor;
                         }
                         else
+                        {
+
+                        }
                         {
                             MessageBox.Show("Não editado");
                         }

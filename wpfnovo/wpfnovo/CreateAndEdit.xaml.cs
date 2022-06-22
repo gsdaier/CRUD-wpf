@@ -33,30 +33,8 @@ namespace wpfnovo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string modelo, ano, cor;
 
-            modelo = TboxModelo.Text;
-            ano = TboxAno.Text;
-            cor = TboxCor.Text;
-
-            if ((modelo == "") || (ano == "") || (cor == ""))
-            {
-                var result = MessageBox.Show("Verifique seus campos vazios e tente novamente", "Question.", MessageBoxButton.OKCancel);
-                if(result == MessageBoxResult.Cancel)
-                {
-                    DialogResult = false;
-                }
-            }
-            else
-            {
-                DialogResult = true;
-            }
-        }
-        private void ClearTextBox()
-        {
-            TboxModelo.Text = "";
-            TboxAno.Text = "";
-            TboxCor.Text = "";
+            DialogResult = true;
         }
     }
 }

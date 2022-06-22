@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\wpfnovo",
+    "\\wpfnovo\\TestProject1",
     "\\wpfnovo\\wpfnovo",
-    "\\wpfnovo\\wpfnovo\\Database"
+    "\\wpfnovo\\wpfnovo\\Database",
+    "\\wpfnovo\\wpfnovo\\Models"
   ],
-  "SelectedNode": "\\wpfnovo\\wpfnovo\\Database\\MySqlDatabase.cs",
+  "SelectedNode": "\\wpfnovo\\wpfnovo\\Models\\MySqlDao.cs",
   "PreviewInSolutionExplorer": false
 }

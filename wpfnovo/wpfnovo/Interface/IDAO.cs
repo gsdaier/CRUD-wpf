@@ -10,13 +10,13 @@ namespace wpfnovo.Interface
     /// Interface (contrato) para classes DAO
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IDAO<T>
+    public interface IDAO<T>
     {
-        void Insert(T t);
+        bool Insert(T t);
 
         void Update(T t);
 
-        void Delete(T t);
+        bool Delete(T t);
 
         List<T> List();
     }

@@ -10,24 +10,25 @@ using wpfnovo.Interface;
 
 namespace wpfnovo.Models
 {
-    class PostgresDao : IDAO<vehicles>
+    public class PostgresDao : IDAO<vehicles>
     {
         private PostgresDatabase conn;
         public PostgresDao()
         {
             conn = new PostgresDatabase();
         }
-        public void Delete(vehicles t)
+        public bool Delete(vehicles t)
         {
             try
             {
                 var query = conn.Query();
                 query.CommandText = "DELETE FROM vehicles WHERE id = @id";
 
-                query.Parameters.AddWithValue("@modelo", t.Modelo);
+                query.Parameters.AddWithValue("@id", t.Id);
 
                 conn.Open();
-                var result = query.ExecuteNonQuery();
+                int result = query.ExecuteNonQuery();
+                return result == 1;
             }
             catch
             {
@@ -39,7 +40,7 @@ namespace wpfnovo.Models
             }
         }
 
-        public void Insert(vehicles t)
+        public bool Insert(vehicles t)
         {
             try
             {
@@ -53,13 +54,17 @@ namespace wpfnovo.Models
 
                 conn.Open();
 
-                var result = query.ExecuteNonQuery();
+                int result = query.ExecuteNonQuery();
 
-                NpgsqlDataReader rdr = query.ExecuteReader();
-
-                if (rdr.Read())
+                if (result == 1)
                 {
-                    t.Id = rdr.GetInt32(0);
+                    NpgsqlDataReader rdr = query.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        t.Id = rdr.GetInt32(0);
+                    }
+                    return true;
                 }
             }
             catch
@@ -70,6 +75,7 @@ namespace wpfnovo.Models
             {
                 conn.Close();
             }
+            return false;
         }
 
         public List<vehicles> List()
